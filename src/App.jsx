@@ -1,13 +1,14 @@
-import Sidebar from './components/Sidebar'
-import Header from './components/Header'
-import DayTabs from './components/DayTabs'
-import LeftPage from './components/LeftPage'
-import RightPage from './components/RightPage'
-import StickerPanel from './components/StickerPanel'
-import BottomToolbar from './components/BottomToolbar'
-import './App.css'
+import { JournalProvider } from "./context/JournalContext";
+import Sidebar from "./components/Sidebar";
+import Header from "./components/Header";
+import DayTabs from "./components/DayTabs";
+import LeftPage from "./components/LeftPage";
+import RightPage from "./components/RightPage";
+import StickerPanel from "./components/StickerPanel";
+import BottomToolbar from "./components/BottomToolbar";
+import "./App.css";
 
-export default function App() {
+function AppContent() {
   return (
     <div className="app">
       <div className="app__texture" aria-hidden="true" />
@@ -29,5 +30,13 @@ export default function App() {
 
       <BottomToolbar />
     </div>
-  )
+  );
+}
+
+export default function App() {
+  return (
+    <JournalProvider>
+      <AppContent />
+    </JournalProvider>
+  );
 }
